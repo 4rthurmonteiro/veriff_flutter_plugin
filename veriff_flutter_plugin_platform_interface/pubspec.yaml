@@ -1,6 +1,6 @@
 name: veriff_flutter_plugin_platform_interface
 description: A common platform interface for the veriff_flutter_plugin plugin.
-version: 0.0.3
+version: 1.0.0
 homepage:
 
 environment:
