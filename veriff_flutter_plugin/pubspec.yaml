@@ -1,7 +1,16 @@
 name: veriff_flutter_plugin
-description: "A new Flutter plugin project."
-version: 0.0.1
-homepage:
+description: "A Flutter plugin for integrating Veriff identity verification. Supports Android, iOS, and Web platforms."
+version: 1.0.0
+homepage: https://github.com/veriff/veriff-flutter-plugin
+repository: https://github.com/veriff/veriff-flutter-plugin
+issue_tracker: https://github.com/veriff/veriff-flutter-plugin/issues
+
+topics:
+  - veriff
+  - identity-verification
+  - kyc
+  - authentication
+  - biometrics
 
 environment:
   sdk: ^3.10.3
@@ -10,10 +19,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  veriff_flutter_plugin_platform_interface:
-    path: ../veriff_flutter_plugin_platform_interface
-  veriff_flutter_plugin_web:
-    path: ../veriff_flutter_plugin_web
+  veriff_flutter_plugin_platform_interface: ^1.0.0
+  veriff_flutter_plugin_web: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -23,5 +30,10 @@ dev_dependencies:
 flutter:
   plugin:
     platforms:
+      android:
+        package: com.veriff.veriff_flutter_plugin
+        pluginClass: VeriffFlutterPlugin
+      ios:
+        pluginClass: VeriffFlutterPlugin
       web:
         default_package: veriff_flutter_plugin_web
