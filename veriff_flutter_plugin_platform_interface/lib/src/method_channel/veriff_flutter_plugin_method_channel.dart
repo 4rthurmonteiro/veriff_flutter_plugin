@@ -15,9 +15,8 @@ class VeriffFlutterPluginMethodChannel
   /// The singleton instance of [VeriffFlutterPluginMethodChannel].
   ///
   /// Creates a new instance if one does not already exist.
-  static VeriffFlutterPluginMethodChannel get instance {
-    return _instance ??= VeriffFlutterPluginMethodChannel();
-  }
+  static VeriffFlutterPluginMethodChannel get instance =>
+      _instance ??= VeriffFlutterPluginMethodChannel();
 
   /// Starts the Veriff identity verification flow using the native SDK.
   ///
@@ -45,8 +44,7 @@ class VeriffFlutterPluginMethodChannel
       vendorData: vendorData,
     );
 
-    final result = await veriff.start(config);
-    return result;
+    return veriff.start(config);
   }
 
   /// Returns the current URI.
@@ -54,7 +52,5 @@ class VeriffFlutterPluginMethodChannel
   /// Always returns `null` on mobile platforms as URI-based callback
   /// handling is not applicable.
   @override
-  Uri? getUri() {
-    return null;
-  }
+  Uri? getUri() => null;
 }

@@ -1,7 +1,19 @@
 name: veriff_flutter_plugin_platform_interface
-description: A common platform interface for the veriff_flutter_plugin plugin.
+description: >-
+  A common platform interface for the veriff_flutter_plugin plugin.
+  This package provides the abstract platform interface that platform-specific
+  implementations must extend to provide Veriff identity verification functionality.
 version: 1.0.0
-homepage:
+homepage: https://github.com/arthurmonteiroalvesmelo/veriff_flutter_plugin
+repository: https://github.com/arthurmonteiroalvesmelo/veriff_flutter_plugin/tree/main/veriff_flutter_plugin_platform_interface
+issue_tracker: https://github.com/arthurmonteiroalvesmelo/veriff_flutter_plugin/issues
+
+topics:
+  - veriff
+  - identity-verification
+  - kyc
+  - platform-interface
+  - plugin
 
 environment:
   sdk: ^3.10.3

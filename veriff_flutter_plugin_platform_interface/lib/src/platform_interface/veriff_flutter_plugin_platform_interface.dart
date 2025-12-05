@@ -14,6 +14,12 @@ abstract class VeriffFlutterPluginPlatformInterface extends PlatformInterface {
   /// Creates a new instance of [VeriffFlutterPluginPlatformInterface].
   VeriffFlutterPluginPlatformInterface() : super(token: _token);
 
+  /// Creates a new instance using the current platform's delegate.
+  ///
+  /// Returns a platform-specific instance through [delegateFor].
+  factory VeriffFlutterPluginPlatformInterface.instanceFor() =>
+      VeriffFlutterPluginPlatformInterface.instance.delegateFor();
+
   static final Object _token = Object();
 
   static VeriffFlutterPluginPlatformInterface? _instance;
@@ -22,9 +28,8 @@ abstract class VeriffFlutterPluginPlatformInterface extends PlatformInterface {
   ///
   /// Defaults to [VeriffFlutterPluginMethodChannel] if no custom instance
   /// has been set.
-  static VeriffFlutterPluginPlatformInterface get instance {
-    return _instance ??= VeriffFlutterPluginMethodChannel.instance;
-  }
+  static VeriffFlutterPluginPlatformInterface get instance =>
+      _instance ??= VeriffFlutterPluginMethodChannel.instance;
 
   /// Sets the platform instance to use.
   ///
@@ -34,13 +39,6 @@ abstract class VeriffFlutterPluginPlatformInterface extends PlatformInterface {
   static set instance(VeriffFlutterPluginPlatformInterface instance) {
     PlatformInterface.verify(instance, _token);
     _instance = instance;
-  }
-
-  /// Creates a new instance using the current platform's delegate.
-  ///
-  /// Returns a platform-specific instance through [delegateFor].
-  factory VeriffFlutterPluginPlatformInterface.instanceFor() {
-    return VeriffFlutterPluginPlatformInterface.instance.delegateFor();
   }
 
   /// Returns the platform-specific delegate instance.
@@ -63,13 +61,15 @@ abstract class VeriffFlutterPluginPlatformInterface extends PlatformInterface {
   /// - [languageLocale]: The locale code for the verification UI language.
   /// - [useCustomIntroScreen]: Whether to use a custom intro screen.
   /// - [vendorData]: Additional vendor-specific data to pass to Veriff.
-  /// - [webOnlyWindowName]: Target window name for web platform.
-  ///   Use `'_self'` (default) for the same window or `'_blank'` for a new window.
+  /// - [webOnlyWindowName]: Target window name for web platform. Use
+  ///   `'_self'` (default) for the same window or `'_blank'` for a new
+  ///   window.
   ///
   /// Returns a [Result] containing the verification outcome, or `null` if
   /// the result is not available (e.g., on web platform).
   ///
-  /// Throws [UnimplementedError] if not overridden by a platform implementation.
+  /// Throws [UnimplementedError] if not overridden by a platform
+  /// implementation.
   Future<Result?> startVerification(
     String sessionUrl, {
     Branding? branding,
@@ -83,12 +83,14 @@ abstract class VeriffFlutterPluginPlatformInterface extends PlatformInterface {
 
   /// Returns the current URI of the page.
   ///
-  /// This is primarily used on web platforms to support callback URL handling
-  /// after the verification flow completes.
+  /// This is primarily used on web platforms to support callback URL
+  /// handling after the verification flow completes.
   ///
-  /// Returns `null` on non-web platforms or if the URI cannot be determined.
+  /// Returns `null` on non-web platforms or if the URI cannot be
+  /// determined.
   ///
-  /// Throws [UnimplementedError] if not overridden by a platform implementation.
+  /// Throws [UnimplementedError] if not overridden by a platform
+  /// implementation.
   Uri? getUri() {
     throw UnimplementedError('getUri() is not implemented');
   }
