@@ -1,3 +1,6 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+* Initial release of Veriff Flutter Plugin Web.
+* Web platform implementation for Veriff Flutter Plugin.
+* Added `startVerification` method for initiating verification sessions.
+* Integration with `veriff_flutter_plugin_platform_interface`.

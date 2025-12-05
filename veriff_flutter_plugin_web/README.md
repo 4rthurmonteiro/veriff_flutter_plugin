@@ -18,7 +18,7 @@ This package is the web platform implementation of the Veriff Flutter plugin. It
 
 ### Prerequisites
 
-- Flutter SDK (>=1.17.0)
+- Flutter SDK (>=1.20.0)
 - Dart SDK (^3.10.3)
 - Flutter web support enabled
 
@@ -36,7 +36,7 @@ Or if published to pub.dev:
 
 ```yaml
 dependencies:
-  veriff_flutter_plugin_web: ^0.0.1
+  veriff_flutter_plugin_web: ^1.0.0
 ```
 
 Then run:
@@ -86,7 +86,23 @@ On web, the verification flow works by:
 3. The user completes verification in the browser
 4. The result is handled by Veriff's web flow (typically via redirects or callbacks)
 
-**Note**: Unlike native platforms, the web implementation may return `null` for the result, as the verification flow is handled entirely within the browser and may redirect to your configured callback URLs.
+**Note**: Unlike native platforms, the web implementation returns `null` for the result, as the verification flow is handled entirely within the browser and redirects to your configured callback URLs.
+
+### Handling Callback URLs
+
+After the verification flow completes, Veriff redirects back to your application with the result in the URL. You can use the `getUri()` method to retrieve the current browser URL and extract the verification result:
+
+```dart
+import 'package:veriff_flutter_plugin_platform_interface/veriff_flutter_plugin_platform_interface.dart';
+
+// Get the current browser URL after redirect
+final uri = VeriffFlutterPluginPlatformInterface.instance.getUri();
+if (uri != null) {
+  // Parse query parameters for verification status
+  final status = uri.queryParameters['status'];
+  final sessionId = uri.queryParameters['sessionId'];
+}
+```
 
 ## Implementation Details
 
@@ -111,7 +127,7 @@ You can control whether the verification opens in the same window or a new windo
 - `flutter`: Flutter SDK
 - `flutter_web_plugins`: Flutter web plugins support
 - `url_launcher`: ^6.3.2 - For launching URLs in the browser
-- `veriff_flutter_plugin_platform_interface`: ^0.0.3 - Platform interface package
+- `veriff_flutter_plugin_platform_interface`: ^1.0.0 - Platform interface package
 - `web`: ^1.1.1 - Web platform support
 
 ## Platform Registration

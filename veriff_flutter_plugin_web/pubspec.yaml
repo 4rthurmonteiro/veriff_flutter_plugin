@@ -1,7 +1,11 @@
 name: veriff_flutter_plugin_web
-description: "A Flutter plugin for Veriff integration (Web)."
-version: 0.0.1
-homepage:
+description: "Veriff Flutter Plugin Web - A Flutter plugin for Veriff integration (Web)."
+version: 1.0.0
+homepage: https://github.com/veriff/veriff-flutter-plugin
+repository: https://github.com/veriff/veriff-flutter-plugin
+issue_tracker: https://github.com/veriff/veriff-flutter-plugin/issues
+documentation: https://github.com/veriff/veriff-flutter-plugin/blob/main/README.md
+pub: https://pub.dev/packages/veriff_flutter_plugin_web
 
 environment:
   sdk: ^3.10.3
@@ -13,8 +17,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   url_launcher: ^6.3.2
-  veriff_flutter_plugin_platform_interface:
-    path: ../veriff_flutter_plugin_platform_interface
+  veriff_flutter_plugin_platform_interface: ^1.0.0
   web: ^1.1.1
 
 dev_dependencies:
